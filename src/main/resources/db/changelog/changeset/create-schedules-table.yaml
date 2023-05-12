@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-schedule
+      author: liquibase
+      changes:
+        - createTable:
+            tableName: schedules
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    #                    unique: true
+                    nullable: false
+              - column:
+                  name: monday
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: tuesday
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: wednesday
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: thursday
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: friday
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: saturday
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sunday
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: schedule_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: schedule_user_fk
+                    referencedTableName: users
+                    referencedColumnNames: id
